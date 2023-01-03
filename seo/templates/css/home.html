@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Simple File Upload</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"  type="text/css">
+  </head>
+  <body>
+    <div class="header">
+        <a href="#default" class="bace_title">Bases</a>
+    </div>
+    <div class="upload_file_box">
+    <div class="upload_box">
+
+    {% block content %}
+  <ul class="upload_buttons">
+    <li>
+      <a class="simple_upload" href="{% url 'simple_upload' %}">Simple Upload</a>
+    </li>
+    <li>
+      <a class="model_form_upload" href="{% url 'model_form_upload' %}">Model Form Upload</a>
+    </li>
+  </ul>
+
+  <p>Uploaded files:</p>
+  <ul>
+    {% for obj in documents %}
+      <li>
+        <a href="{{ obj.document.url }}">{{ obj.document.name }}</a>
+        <small>(Uploaded at: {{ obj.uploaded_at }})</small>
+      </li>
+    {% endfor %}
+  </ul>
+  <a href="{{ '/media/output/output.csv' }}">output file</a>
+  <p></p>
+  <a href="{{ '/media/input/input.csv' }}">input file</a>
+  {% endblock %}
+  </div>
+  </div>
+  
+  </body>
+</html>
+
+

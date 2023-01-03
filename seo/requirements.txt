@@ -1,0 +1,6 @@
+Django==3.2.5
+google==3.0.0
+djangorestframework==3.13.1
+django-cors-headers==3.13.0
+pandas==1.4.3
+advertools==0.7.4
